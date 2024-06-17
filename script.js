@@ -2,7 +2,7 @@ let prisonFunds = 0;
 let prisonerCount = 0;
 let mentalWellbeing = 100;
 let prisonName = "Not set";
-const prisonerIncreaseRate = 0.1;
+const prisonerIncreaseRateBase = 0.1;
 const cellCost = 50;
 const guardCost = 100;
 const wellbeingCost = 20;
@@ -27,7 +27,6 @@ function constructCell() {
         cell.className = "cell";
         cell.innerText = "C";
         document.getElementById("prison-layout").appendChild(cell);
-        prisonerCount++;
     } else {
         alert("Not enough funds to construct a cell!");
     }
@@ -60,6 +59,8 @@ function increaseMentalWellbeing() {
 }
 
 function increasePrisoners() {
+    const cellCount = document.getElementsByClassName("cell").length;
+    const prisonerIncreaseRate = prisonerIncreaseRateBase * cellCount;
     prisonerCount += prisonerIncreaseRate;
     prisonFunds += prisonerIncreaseRate * 10; // Earn funds based on prisoner count
 }
@@ -122,4 +123,3 @@ function openModal(modalId) {
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
 }
-
