@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle Prison Tycoon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Idle Prison Tycoon</h1>
+        <div class="controls">
+            <label for="prison-name">Prison Name:</label>
+            <input type="text" id="prison-name" placeholder="Enter prison name">
+            <button onclick="setPrisonName()">Set Name</button>
+        </div>
+        <div class="stats">
+            <p>Prison Name: <span id="display-prison-name">Not set</span></p>
+            <p>Prison Funds: <span id="prison-funds">0</span></p>
+            <p>Prisoners: <span id="prisoner-count">0</span></p>
+            <p>Mental Well-being: <span id="mental-wellbeing">100</span>%</p>
+        </div>
+        <div class="actions">
+            <button onclick="constructCell()">Construct Cell</button>
+            <button onclick="hireGuard()">Hire Guard</button>
+            <button onclick="increaseMentalWellbeing()">Improve Well-being</button>
+        </div>
+        <div class="prison">
+            <h2>Prison Layout</h2>
+            <div id="prison-layout">
+                <!-- Cells and guards will be added here -->
+            </div>
+        </div>
+        <div class="export">
+            <button onclick="exportGameData()">Export Game Data</button>
+            <textarea id="exported-data" readonly></textarea>
+        </div>
+        <div class="load">
+            <textarea id="imported-data" placeholder="Paste your exported game data here"></textarea>
+            <button onclick="loadGameData()">Load Game Data</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
