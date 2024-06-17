@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Idle Prison Tycoon</h1>
+        <h1></h1>
         <div class="controls">
             <label for="prison-name">Prison Name:</label>
             <input type="text" id="prison-name" placeholder="Enter prison name">
@@ -31,15 +31,32 @@
                 <!-- Cells and guards will be added here -->
             </div>
         </div>
-        <div class="export">
-            <button onclick="exportGameData()">Export Game Data</button>
-            <textarea id="exported-data" readonly></textarea>
+        <div class="export-load-buttons">
+            <button onclick="openModal('exportModal')">Export Game Data</button>
+            <button onclick="openModal('loadModal')">Load Game Data</button>
         </div>
-        <div class="load">
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('exportModal')">&times;</span>
+            <h2>Export Game Data</h2>
+            <textarea id="exported-data" readonly></textarea>
+            <button onclick="exportGameData()">Generate Export Data</button>
+        </div>
+    </div>
+
+    <!-- Load Modal -->
+    <div id="loadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loadModal')">&times;</span>
+            <h2>Load Game Data</h2>
             <textarea id="imported-data" placeholder="Paste your exported game data here"></textarea>
             <button onclick="loadGameData()">Load Game Data</button>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
